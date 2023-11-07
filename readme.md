@@ -2,7 +2,7 @@
 
 # PC
 
-Various scripts and tools for my PCs.
+Various scripts for my PCs.
 
 # License
 
