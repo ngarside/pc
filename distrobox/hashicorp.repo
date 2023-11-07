@@ -1,0 +1,8 @@
+# This is free and unencumbered software released into the public domain.
+
+[repo-hashicorp]
+baseurl = https://rpm.releases.hashicorp.com/fedora/38/$basearch/stable
+enabled = 1
+gpgcheck = 1
+gpgkey = https://rpm.releases.hashicorp.com/gpg
+name = repo-hashicorp
