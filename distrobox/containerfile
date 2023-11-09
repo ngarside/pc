@@ -1,0 +1,40 @@
+# This is free and unencumbered software released into the public domain.
+
+FROM registry.opensuse.org/opensuse/distrobox:latest
+
+# Import RPM keys
+RUN rpm --import https://rpm.releases.hashicorp.com/gpg
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+# Configure RPM repos
+COPY hashicorp.repo /etc/zypp/repos.d/repo-hashicorp.repo
+COPY microsoft.repo /etc/zypp/repos.d/repo-microsoft.repo
+
+# Install packages
+RUN zypper --non-interactive install --no-recommends \
+	ansible \
+	azure-cli \
+	dotnet-sdk-7.0 \
+	git \
+	hadolint \
+	ImageMagick \
+	just \
+	jq \
+	libgthread-2_0-0 \
+	libXtst6 \
+	npm \
+	python3-rpm \
+	python3-yamllint \
+	ShellCheck \
+	terraform \
+	&& zypper clean
+
+# Install Azure Artifacts credential provider
+RUN mkdir /opt/nuget \
+	&& wget -O- \
+	https://github.com/microsoft/artifacts-credprovider/releases/latest/download/Microsoft.Net6.NuGet.CredentialProvider.tar.gz \
+	| tar --extract --gzip --directory /opt/nuget
+
+# Set default environment variables
+ENV DOTNET_CLI_TELEMETRY_OPTOUT true
+ENV NUGET_PLUGIN_PATHS /opt/nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.dll
