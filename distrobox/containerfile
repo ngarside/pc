@@ -30,6 +30,10 @@ RUN zypper --non-interactive install --no-recommends \
 	terraform \
 	&& zypper clean
 
+# Revert configuration changes in base image
+RUN sed -i 's/.*solver.onlyRequires.*/solver.onlyRequires = true/g' /etc/zypp/zypp.conf \
+	&& sed -i 's/.*rpm.install.excludedocs.*/rpm.install.excludedocs = yes/g' /etc/zypp/zypp.conf
+
 # Install Azure Artifacts credential provider
 RUN mkdir /opt/nuget \
 	&& wget -O- \
