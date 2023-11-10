@@ -9,6 +9,7 @@ RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 # Configure RPM repos
 COPY hashicorp.repo /etc/zypp/repos.d/repo-hashicorp.repo
 COPY microsoft.repo /etc/zypp/repos.d/repo-microsoft.repo
+COPY vscode.repo /etc/zypp/repos.d/repo-vscode.repo
 
 # Install packages
 RUN zypper --non-interactive install --no-recommends \
@@ -33,7 +34,7 @@ RUN zypper --non-interactive install --no-recommends \
 RUN mkdir /opt/nuget \
 	&& wget -O- \
 	https://github.com/microsoft/artifacts-credprovider/releases/latest/download/Microsoft.Net6.NuGet.CredentialProvider.tar.gz \
-	| tar --extract --gzip --directory /opt/nuget
+	| tar --directory /opt/nuget --extract --gzip
 
 # Copy configuration files
 COPY git.conf /etc/gitconfig
