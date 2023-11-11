@@ -50,6 +50,5 @@ ENV NUGET_PLUGIN_PATHS /opt/nuget/plugins/netcore/CredentialProvider.Microsoft/C
 
 # Run script on startup
 COPY init.service /etc/systemd/system/init.service
-RUN chmod +x /etc/systemd/system/init.service && systemctl enable init
 COPY init.sh /opt/init.sh
-RUN chmod +x /opt/init.sh
+RUN chmod +x /opt/init.sh && systemctl enable init
