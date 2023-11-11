@@ -19,6 +19,7 @@ RUN zypper --non-interactive install --no-recommends \
 	git \
 	hadolint \
 	ImageMagick \
+	jetbrains-mono-fonts \
 	just \
 	jq \
 	libgthread-2_0-0 \
