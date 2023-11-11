@@ -2,7 +2,7 @@
 Description=Spark service
 
 [Service]
-ExecStart=zypper --non-interactive install code
+ExecStart=/opt/init.sh
 
 [Install]
 WantedBy=multi-user.target
