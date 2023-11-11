@@ -19,6 +19,7 @@ RUN zypper --non-interactive install --no-recommends \
 	git \
 	hadolint \
 	ImageMagick \
+	jetbrains-mono-fonts \
 	just \
 	jq \
 	libgthread-2_0-0 \
@@ -29,6 +30,10 @@ RUN zypper --non-interactive install --no-recommends \
 	ShellCheck \
 	terraform \
 	&& zypper clean
+
+# Revert configuration changes in base image
+RUN sed -i 's/.*solver.onlyRequires.*/solver.onlyRequires = true/g' /etc/zypp/zypp.conf \
+	&& sed -i 's/.*rpm.install.excludedocs.*/rpm.install.excludedocs = yes/g' /etc/zypp/zypp.conf
 
 # Install Azure Artifacts credential provider
 RUN mkdir /opt/nuget \
