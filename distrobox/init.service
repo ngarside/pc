@@ -1,0 +1,8 @@
+[Unit]
+Description=Spark service
+
+[Service]
+ExecStart=zypper --non-interactive install code
+
+[Install]
+WantedBy=multi-user.target
