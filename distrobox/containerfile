@@ -42,3 +42,7 @@ COPY git.conf /etc/gitconfig
 # Set default environment variables
 ENV DOTNET_CLI_TELEMETRY_OPTOUT true
 ENV NUGET_PLUGIN_PATHS /opt/nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.dll
+
+# Run script on startup
+COPY entrypoint.sh /opt/entrypoint.sh
+ENTRYPOINT ['/opt/entrypoint.sh']
