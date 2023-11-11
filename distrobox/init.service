@@ -1,8 +1,7 @@
-[Unit]
-Description=Spark service
-
-[Service]
-ExecStart=/opt/init.sh
+# This is free and unencumbered software released into the public domain.
 
 [Install]
 WantedBy=multi-user.target
+
+[Service]
+ExecStart=/opt/init.sh
