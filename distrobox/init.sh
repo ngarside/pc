@@ -14,3 +14,6 @@ sudo --shell --user nathan -- <<EOF
 	code --extensions-dir /opt/code/extensions --install-extension GitHub.github-vscode-theme --user-data-dir /opt/code/data
 	code --extensions-dir /opt/code/extensions --install-extension PKief.material-icon-theme --user-data-dir /opt/code/data
 EOF
+
+# Disable init service.
+systemctl disable init
