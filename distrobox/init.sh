@@ -7,3 +7,10 @@ chown --recursive nathan:nathan /opt/code
 
 # Install non-free packages.
 zypper --non-interactive install code
+
+# Install VS code extensions.
+sudo --shell --user nathan -- <<EOF
+	code --extensions-dir /opt/code/extensions --install-extension EditorConfig.EditorConfig --user-data-dir /opt/code/data
+	code --extensions-dir /opt/code/extensions --install-extension GitHub.github-vscode-theme --user-data-dir /opt/code/data
+	code --extensions-dir /opt/code/extensions --install-extension PKief.material-icon-theme --user-data-dir /opt/code/data
+EOF
