@@ -22,6 +22,7 @@ wget -O- $rider | tar --directory /opt/rider --extract --gzip --strip-components
 
 # Copy desktop files.
 sudo --shell --user nathan -- <<EOF
+	cp /opt/desktop/rider.desktop ~/.local/share/applications/rider.desktop
 	cp /opt/desktop/vscode.desktop ~/.local/share/applications/vscode.desktop
 EOF
 
