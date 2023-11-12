@@ -2,16 +2,16 @@
 
 FROM registry.opensuse.org/opensuse/distrobox:latest
 
-# Import RPM keys
+# Import RPM keys.
 RUN rpm --import https://rpm.releases.hashicorp.com/gpg
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
-# Configure RPM repos
+# Configure RPM repos.
 COPY hashicorp.repo /etc/zypp/repos.d/repo-hashicorp.repo
 COPY microsoft.repo /etc/zypp/repos.d/repo-microsoft.repo
 COPY vscode.repo /etc/zypp/repos.d/repo-vscode.repo
 
-# Install packages
+# Install packages.
 RUN zypper --non-interactive install --no-recommends \
 	ansible \
 	azure-cli \
@@ -31,24 +31,26 @@ RUN zypper --non-interactive install --no-recommends \
 	terraform \
 	&& zypper clean
 
-# Revert configuration changes in base image
+# Revert configuration changes in base image.
 RUN sed -i 's/.*solver.onlyRequires.*/solver.onlyRequires = true/g' /etc/zypp/zypp.conf \
 	&& sed -i 's/.*rpm.install.excludedocs.*/rpm.install.excludedocs = yes/g' /etc/zypp/zypp.conf
 
-# Install Azure Artifacts credential provider
+# Install Azure Artifacts credential provider.
 RUN mkdir /opt/nuget \
 	&& wget -O- \
 	https://github.com/microsoft/artifacts-credprovider/releases/latest/download/Microsoft.Net6.NuGet.CredentialProvider.tar.gz \
 	| tar --directory /opt/nuget --extract --gzip
 
-# Copy configuration files
+# Copy configuration files.
 COPY git.conf /etc/gitconfig
+COPY vscode-keybindings.jsonc /opt/code/data/User/keybindings.json
+COPY vscode-settings.jsonc /opt/code/data/User/settings.json
 
-# Set default environment variables
+# Set default environment variables.
 ENV DOTNET_CLI_TELEMETRY_OPTOUT true
 ENV NUGET_PLUGIN_PATHS /opt/nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.dll
 
-# Run script on startup
+# Run script on startup.
 COPY init.service /etc/systemd/system/init.service
 COPY init.sh /opt/init.sh
 RUN chmod +x /opt/init.sh && systemctl enable init
