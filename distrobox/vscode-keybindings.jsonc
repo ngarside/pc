@@ -1,0 +1,38 @@
+// This is free and unencumbered software released into the public domain.
+
+[
+	// Cycle through tabs using 'ctrl+tab' and 'ctrl+shift+tab'.
+	{ "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
+	{ "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
+
+	// Duplicate the current line/selection with 'ctrl+d'.
+	{ "key": "ctrl+d", "command": "-editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
+	{ "key": "ctrl+d", "command": "editor.action.duplicateSelection" },
+
+	// Remap 'save all' to 'ctrl+shift+s'.
+	{ "key": "ctrl+k s", "command": "-saveAll" },
+	{ "key": "ctrl+shift+s", "command": "saveAll" },
+
+	// Remap 'open folder' to 'ctrl+shift+o'.
+	{ "key": "ctrl+shift+o", "command": "workbench.action.files.openFolder", "when": "openFolderWorkspaceSupport" },
+	{ "key": "ctrl+k ctrl+o", "command": "-workbench.action.files.openFolder", "when": "openFolderWorkspaceSupport" },
+
+	// Remap 'open command palette' to 'alt+enter'.
+	{ "key": "alt+enter", "command": "workbench.action.showCommands" },
+	{ "key": "ctrl+shift+p", "command": "-workbench.action.showCommands" },
+
+	// Remap 'close window' to 'alt+w'.
+	{ "key": "alt+w", "command": "workbench.action.closeWindow" },
+	{ "key": "ctrl+shift+w", "command": "-workbench.action.closeWindow" },
+
+	// Only use 'ctrl+w' to close document.
+	{ "key": "ctrl+f4", "command": "-workbench.action.closeActiveEditor" },
+
+	// Remap 'ctrl+shift+w' to close all documents.
+	{ "key": "ctrl+shift+w", "command": "workbench.action.closeAllEditors" },
+	{ "key": "ctrl+k ctrl+w", "command": "-workbench.action.closeAllEditors" },
+
+	// Remap 'open actions' to 'ctrl+enter'.
+	{ "key": "ctrl+enter", "command": "editor.action.quickFix", "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly" },
+	{ "key": "ctrl+oem_period", "command": "-editor.action.quickFix", "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly" }
+]

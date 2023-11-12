@@ -1,0 +1,142 @@
+// This is free and unencumbered software released into the public domain.
+
+{
+	// F# and YAML files should default to using spaces (everything else defaults to tabs).
+	"[fsharp,yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+
+	// Automatically close the console when the debug session ends.
+	"debug.console.closeOnEnd": true,
+
+	// Don't merge folders in the explorer.
+	"explorer.compactFolders": false,
+
+	// Disable code folding.
+	"editor.folding": false,
+
+	// Use JetBrains Mono font.
+	// https://www.jetbrains.com/lp/mono.
+	"editor.fontFamily": "JetBrains Mono, monospace",
+
+	// Enable ligatures in supported fonts.
+	"editor.fontLigatures": true,
+
+	// Adjust font size to better match JetBrains IDEs.
+	"editor.fontSize": 12.5,
+	"editor.fontWeight": "300",
+	"editor.lineHeight": 1.6,
+
+	// Don't insert spaces when pressing tab.
+	"editor.insertSpaces": false,
+
+	// Don't show minimap next to open documents (uses too much horizontal space).
+	"editor.minimap.enabled": false,
+
+	// Show the line hightlight in the gutter.
+	"editor.renderLineHighlight": "all",
+
+	// Wrap lines at the viewport width.
+	"editor.wordWrap": "on",
+
+	// Don't select open files in the explorer.
+	"explorer.autoReveal": false,
+
+	// Disable the Open Editors pane.
+	"explorer.openEditors.visible": 0,
+
+	// Disable extension recommendations.
+	"extensions.ignoreRecommendations": true,
+
+	"files.associations": {
+
+		// Treat 'justfile' files as if they were 'makefile'.
+		"justfile": "makefile",
+
+		// Treat 'meta' files as if they were 'json'.
+		"*.meta": "json",
+
+		// Treat configuration-like files as if they were 'ini'.
+		"*.rc": "ini",
+		"*.repo": "ini",
+		"*.restext": "ini",
+		"*.service": "ini"
+
+	},
+
+	// Automatically save files after a 1s delay.
+	"files.autoSave": "afterDelay",
+
+	// When opening new tabs, default to the language of the previously open tab.
+	"files.defaultLanguage": "${activeEditorLanguage}",
+
+	// Automatically fetch commits from all git remotes every 3m.
+	"git.autofetch": "all",
+
+	// Don't confirm when syncing repositories.
+	"git.confirmSync": false,
+
+	// Commit all unstaged changes when there are no staged changes.
+	"git.enableSmartCommit": true,
+
+	// Open git repositories in parent folders.
+	"git.openRepositoryInParentFolders": "always",
+
+	// Disable telemetry for RedHat extensions.
+	// https://github.com/redhat-developer/vscode-redhat-telemetry.
+	"redhat.telemetry.enabled": false,
+
+	// Always trust all windows.
+	"security.workspace.trust.enabled": false,
+
+	// Disable telemetry.
+	"telemetry.telemetryLevel": "off",
+
+	// Use an I-beam style cursor in the terminal.
+	"terminal.integrated.cursorStyle": "line",
+
+	// Disable JavaScript and TypeScript survey prompts.
+	"typescript.surveys.enabled": false,
+
+	// Update paths to imported modules when moving JavaScript and TypeScript files.
+	"typescript.updateImportsOnFileMove.enabled": "always",
+
+	// Disable update checks (rely on the package manager instead)
+	"update.mode": "none",
+
+	// Automatically switch between light and dark themes based on the operating system's appearance setting.
+	"window.autoDetectColorScheme": true,
+
+	// Don't restore windows on cold start.
+	"window.restoreWindows": "none",
+
+	// Use GitHub's theme.
+	// https://marketplace.visualstudio.com/items?itemName=github.github-vscode-theme.
+	"workbench.colorTheme": "GitHub Dark",
+	"workbench.preferredDarkColorTheme": "GitHub Dark",
+	"workbench.preferredLightColorTheme": "GitHub Light",
+
+	// Disable preview editors.
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.enablePreviewFromQuickOpen": false,
+
+	// Use the material icon theme.
+	// https://marketplace.visualstudio.com/items?itemName=pkief.material-icon-theme.
+	"workbench.iconTheme": "material-icon-theme",
+
+	// Remaps list/tree (file/folder) click behaviour:
+	// - Single click to select.
+	// - Double click to open/expand.
+	"workbench.list.openMode": "doubleClick",
+	"workbench.tree.expandMode": "doubleClick",
+
+	// Open the panel (terminal/etc) to the right of the editor.
+	"workbench.panel.defaultLocation": "right",
+
+	// Disable the welcome screen.
+	"workbench.startupEditor": "none",
+
+	// Increase tree indent in the explorer.
+	"workbench.tree.indent": 20
+}
