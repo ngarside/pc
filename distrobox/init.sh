@@ -15,5 +15,10 @@ sudo --shell --user nathan -- <<EOF
 	code --extensions-dir /opt/code/extensions --install-extension PKief.material-icon-theme --user-data-dir /opt/code/data
 EOF
 
+# Copy desktop files.
+sudo --shell --user nathan -- <<EOF
+	cp /opt/desktop/vscode.desktop ~/.local/share/applications/vscode.desktop
+EOF
+
 # Disable init service.
 systemctl disable init

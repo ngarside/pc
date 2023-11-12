@@ -1,0 +1,15 @@
+# This is free and unencumbered software released into the public domain.
+
+[Desktop Entry]
+Categories=TextEditor;Development;IDE;
+Comment=Code Editing. Redefined.
+Exec=/usr/bin/distrobox enter --name distrobox -- code --extensions-dir /opt/code/extensions --user-data-dir /opt/code/data
+GenericName=Text Editor
+Icon=code
+Keywords=vscode
+MimeType=text/plain;inode/directory;application/x-code-workspace;
+Name=Visual Studio Code
+StartupNotify=true
+StartupWMClass=Code
+TryExec=/usr/bin/distrobox
+Type=Application
