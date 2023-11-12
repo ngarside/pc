@@ -1,0 +1,13 @@
+# This is free and unencumbered software released into the public domain.
+
+[Desktop Entry]
+Name=JetBrains Rider
+Exec=/usr/bin/distrobox-enter --name default -- /home/nathan/.local/share/JetBrains/Toolbox/scripts/rider
+Version=1.0
+Type=Application
+Categories=Development
+Terminal=false
+Icon=rider
+Comment=A cross-platform .NET IDE
+StartupWMClass=jetbrains-rider
+StartupNotify=true
