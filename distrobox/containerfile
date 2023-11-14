@@ -43,7 +43,7 @@ RUN mkdir /opt/nuget \
 
 # Copy configuration files.
 COPY git.conf /etc/gitconfig
-COPY vim.rc /etc/vimrc
+COPY config.vim /etc/vimrc
 COPY vscode-keybindings.jsonc /opt/code/data/User/keybindings.json
 COPY vscode-settings.jsonc /opt/code/data/User/settings.json
 
