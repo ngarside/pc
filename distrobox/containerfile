@@ -44,9 +44,12 @@ RUN mkdir /opt/nuget \
 # Copy configuration files.
 COPY git.conf /etc/gitconfig
 COPY vim.rc /etc/vimrc
-COPY vscode.desktop /opt/desktop/vscode.desktop
 COPY vscode-keybindings.jsonc /opt/code/data/User/keybindings.json
 COPY vscode-settings.jsonc /opt/code/data/User/settings.json
+
+# Copy desktop files
+COPY rider.desktop /opt/desktop/rider.desktop
+COPY vscode.desktop /opt/desktop/vscode.desktop
 
 # Set default environment variables.
 ENV DOTNET_CLI_TELEMETRY_OPTOUT true
