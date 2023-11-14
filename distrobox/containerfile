@@ -48,6 +48,7 @@ COPY vscode-keybindings.jsonc /opt/code/data/User/keybindings.json
 COPY vscode-settings.jsonc /opt/code/data/User/settings.json
 
 # Copy desktop files
+COPY pycharm.desktop /opt/desktop/pycharm.desktop
 COPY rider.desktop /opt/desktop/rider.desktop
 COPY vscode.desktop /opt/desktop/vscode.desktop
 

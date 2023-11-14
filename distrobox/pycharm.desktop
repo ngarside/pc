@@ -1,0 +1,14 @@
+# This is free and unencumbered software released into the public domain.
+
+[Desktop Entry]
+Categories=Development;IDE
+Comment=The intelligent Python IDE
+Exec=/usr/bin/distrobox enter --name distrobox -- /opt/pycharm/bin/pycharm.sh
+Icon=pycharm
+Keywords=pycharm
+Name=JetBrains PyCharm
+StartupNotify=true
+StartupWMClass=jetbrains-pycharm
+Terminal=false
+TryExec=/usr/bin/distrobox
+Type=Application

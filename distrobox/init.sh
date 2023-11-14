@@ -15,6 +15,11 @@ sudo --shell --user nathan -- <<EOF
 	code --extensions-dir /opt/code/extensions --install-extension PKief.material-icon-theme --user-data-dir /opt/code/data
 EOF
 
+# Install JetBrains PyCharm
+pycharm=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=PCC | jq --raw-output .PCC[0].downloads.linux.link)
+mkdir /opt/pycharm
+wget -O- $pycharm | tar --directory /opt/pycharm --extract --gzip --strip-components 1
+
 # Install JetBrains Rider
 rider=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=RD | jq --raw-output .RD[0].downloads.linux.link)
 mkdir /opt/rider
@@ -22,6 +27,7 @@ wget -O- $rider | tar --directory /opt/rider --extract --gzip --strip-components
 
 # Copy desktop files.
 sudo --shell --user nathan -- <<EOF
+	cp /opt/desktop/pycharm.desktop ~/.local/share/applications/pycharm.desktop
 	cp /opt/desktop/rider.desktop ~/.local/share/applications/rider.desktop
 	cp /opt/desktop/vscode.desktop ~/.local/share/applications/vscode.desktop
 EOF
