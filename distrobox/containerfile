@@ -31,6 +31,10 @@ RUN zypper --non-interactive install --no-recommends \
 	terraform \
 	&& zypper clean
 
+# Install pipenv
+RUN pip install --break-system-packages pipenv \
+	&& ln --symbolic ~/.local/bin/pipenv /usr/local/bin/pipenv
+
 # Revert configuration changes in base image.
 RUN sed -i 's/.*solver.onlyRequires.*/solver.onlyRequires = true/g' /etc/zypp/zypp.conf \
 	&& sed -i 's/.*rpm.install.excludedocs.*/rpm.install.excludedocs = yes/g' /etc/zypp/zypp.conf
