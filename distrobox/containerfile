@@ -52,6 +52,10 @@ COPY pycharm.desktop /opt/desktop/pycharm.desktop
 COPY rider.desktop /opt/desktop/rider.desktop
 COPY vscode.desktop /opt/desktop/vscode.desktop
 
+# Setup podman access
+COPY host-exec.sh /usr/local/bin/podman
+RUN chmod +x /usr/local/bin/podman
+
 # Set default environment variables.
 ENV DOTNET_CLI_TELEMETRY_OPTOUT true
 ENV NUGET_PLUGIN_PATHS /opt/nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.dll
