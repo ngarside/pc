@@ -16,7 +16,7 @@ sudo --shell --user nathan -- <<EOF
 EOF
 
 # Install JetBrains PyCharm
-pycharm=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=PCP | jq --raw-output .PCP[0].downloads.linux.link)
+pycharm=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=PCC | jq --raw-output .PCC[0].downloads.linux.link)
 mkdir /opt/pycharm
 wget -O- $pycharm | tar --directory /opt/pycharm --extract --gzip --strip-components 1
 
