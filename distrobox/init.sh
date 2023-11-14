@@ -25,6 +25,10 @@ rider=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=RD 
 mkdir /opt/rider
 wget -O- $rider | tar --directory /opt/rider --extract --gzip --strip-components 1
 
+# Install pipenv
+sudo --user nathan pip install --break-system-packages pipenv
+ln --symbolic /home/nathan/.local/bin/pipenv /usr/local/bin/pipenv
+
 # Copy desktop files.
 sudo --shell --user nathan -- <<EOF
 	cp /opt/desktop/pycharm.desktop ~/.local/share/applications/pycharm.desktop
