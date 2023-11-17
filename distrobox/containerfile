@@ -15,7 +15,7 @@ COPY vscode.repo /etc/zypp/repos.d/repo-vscode.repo
 RUN zypper --non-interactive install --no-recommends \
 	ansible \
 	azure-cli \
-	dotnet-sdk-7.0 \
+	dotnet-sdk-8.0 \
 	git \
 	hadolint \
 	ImageMagick \
@@ -47,12 +47,12 @@ COPY config.vim /etc/vimrc
 COPY vscode-keybindings.jsonc /opt/code/data/User/keybindings.json
 COPY vscode-settings.jsonc /opt/code/data/User/settings.json
 
-# Copy desktop files
+# Copy desktop files.
 COPY pycharm.desktop /opt/desktop/pycharm.desktop
 COPY rider.desktop /opt/desktop/rider.desktop
 COPY vscode.desktop /opt/desktop/vscode.desktop
 
-# Setup podman access
+# Setup podman access.
 COPY host-exec.sh /usr/local/bin/podman
 RUN chmod +x /usr/local/bin/podman
 

@@ -15,17 +15,17 @@ sudo --shell --user nathan -- <<EOF
 	code --extensions-dir /opt/code/extensions --install-extension PKief.material-icon-theme --user-data-dir /opt/code/data
 EOF
 
-# Install JetBrains PyCharm
+# Install JetBrains PyCharm.
 pycharm=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=PCC | jq --raw-output .PCC[0].downloads.linux.link)
 mkdir /opt/pycharm
 wget -O- $pycharm | tar --directory /opt/pycharm --extract --gzip --strip-components 1
 
-# Install JetBrains Rider
+# Install JetBrains Rider.
 rider=$(wget -qO- https://data.services.jetbrains.com/products/releases?code=RD | jq --raw-output .RD[0].downloads.linux.link)
 mkdir /opt/rider
 wget -O- $rider | tar --directory /opt/rider --extract --gzip --strip-components 1
 
-# Install pipenv
+# Install pipenv.
 sudo --user nathan pip install --break-system-packages pipenv
 ln --symbolic /home/nathan/.local/bin/pipenv /usr/local/bin/pipenv
 
