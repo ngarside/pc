@@ -60,7 +60,6 @@
 		// Treat configuration-like files as if they were 'ini'.
 		"*.desktop": "ini",
 		"*.rc": "ini",
-		"*.repo": "ini",
 		"*.restext": "ini",
 		"*.service": "ini"
 
