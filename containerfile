@@ -11,11 +11,11 @@ RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia
 RUN echo "%_with_kmod_nvidia_open 1" > /etc/rpm/macros.nvidia-kmod
 
 # $(uname -r)
-RUN akmods --force --kernels $(rpm -qa kernel) --rebuild
+RUN akmods --force --kernels $(rpm -qa kernel | grep -oP '(?<=kernel-).*') --rebuild
 
 RUN tree /var/cache
 
-RUN rpm-ostree install /var/cache/akmods/nvidia/kmod-nvidia-$(rpm -qa kernel)-575.64.05-2.fc42.x86_64.rpm
+RUN rpm-ostree install /var/cache/akmods/nvidia/kmod-nvidia-$(rpm -qa kernel | grep -oP '(?<=kernel-).*')-575.64.05-2.fc42.x86_64.rpm
 
 # RUN rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova_core --append=modprobe.blacklist=nouveau,nova_core --append=nvidia-drm.modeset=1
 
