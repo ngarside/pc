@@ -1,0 +1,11 @@
+# This is free and unencumbered software released into the public domain.
+
+FROM quay.io/fedora/fedora-silverblue:42
+
+SHELL ["/bin/bash", "-c"]
+
+RUN --mount=target=/tmp/git set -euo pipefail && \
+	for file in /tmp/git/core/*.sh; do bash "$file" || exit; done
+
+RUN --mount=target=/tmp/git set -euo pipefail && \
+	for file in /tmp/git/silverblue/*.sh; do bash "$file" || exit; done

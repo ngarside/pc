@@ -6,7 +6,7 @@ _default:
 # Build container image
 build:
     podman build \
-        --file containerfile \
+        --file images/pc.containerfile \
         --format docker \
         --progress plain \
         --security-opt label=disable \
