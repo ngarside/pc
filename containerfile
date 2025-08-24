@@ -6,16 +6,18 @@ RUN rpm-ostree install papirus-icon-theme
 
 RUN rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
 
-RUN rpm-ostree install rpmfusion-nonfree-release-tainted
+# RUN rpm-ostree install rpmfusion-nonfree-release-tainted
 
-RUN rpm-ostree install akmod-nvidia-open xorg-x11-drv-nvidia
+RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia
+
+RUN echo "%_with_kmod_nvidia_open 1" > /etc/rpm/macros.nvidia-kmod
 
 # $(uname -r)
 RUN akmods --force --kernels 6.15.10-200.fc42.x86_64 --rebuild
 
 RUN tree /var/cache
 
-RUN rpm-ostree install /var/cache/akmods/nvidia-open/kmod-nvidia-open-6.15.10-200.fc42.x86_64-575.64.05-1.fc42.x86_64.rpm
+RUN rpm-ostree install /var/cache/akmods/nvidia/kmod-nvidia-6.15.10-200.fc42.x86_64-575.64.05-2.fc42.x86_64.rpm
 
 # RUN rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova_core --append=modprobe.blacklist=nouveau,nova_core --append=nvidia-drm.modeset=1
 
