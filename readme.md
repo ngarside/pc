@@ -26,6 +26,12 @@ Upgrade to the latest image:
 sudo bootc upgrade
 ```
 
+Uninstall all flatpaks:
+
+```sh
+flatpak remove --all --noninteractive # --delete-data # Uncomment to delete all data
+```
+
 # <p align=center>License
 
 This is free and unencumbered software released into the public domain.
