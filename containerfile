@@ -10,7 +10,8 @@ RUN rpm-ostree install rpmfusion-nonfree-release-tainted
 
 RUN rpm-ostree install akmod-nvidia-open xorg-x11-drv-nvidia
 
-RUN akmods --force --rebuild
+# $(uname -r)
+RUN akmods --force --kernels 6.15.10-200.fc42.x86_64 --rebuild
 
 RUN tree /var/cache
 
