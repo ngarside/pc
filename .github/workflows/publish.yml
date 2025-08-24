@@ -28,10 +28,20 @@ jobs:
           delete-only-untagged-versions: true
 
       - name: login
-        run: podman login ghcr.io --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+            podman login ghcr.io
+            --username ${{ github.actor }}
+            --password ${{ secrets.GITHUB_TOKEN }}
 
       - name: build
-        run: podman build --file containerfile --format docker --progress plain --security-opt label=disable --tag ghcr.io/ngarside/pc:latest .
+        run: >-
+            podman build
+            --file containerfile
+            --format docker
+            --progress plain
+            --security-opt label=disable
+            --tag ghcr.io/ngarside/pc:latest
+            .
 
       - name: push
         run: podman push ghcr.io/ngarside/pc:latest
