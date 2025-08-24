@@ -19,13 +19,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Purge old versions
-        uses: actions/delete-package-versions@v5
-        with:
-          package-name: ${{ inputs.name }}
-          package-type: container
-          delete-only-untagged-versions: true
-
       - name: Login to registry
         run: >-
           podman login ghcr.io
@@ -44,3 +37,10 @@ jobs:
 
       - name: Push image to registry
         run: podman push ghcr.io/ngarside/${{ inputs.name }}:latest
+
+      - name: Purge old versions
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: ${{ inputs.name }}
+          package-type: container
+          delete-only-untagged-versions: true
