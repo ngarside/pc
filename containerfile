@@ -2,6 +2,8 @@ FROM quay.io/fedora/fedora-kinoite:42
 
 RUN uname -r
 
+RUN rpm -qa kernel
+
 RUN rpm-ostree install papirus-icon-theme
 
 RUN rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
