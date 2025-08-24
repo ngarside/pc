@@ -8,6 +8,8 @@ RUN rpm-ostree install rpmfusion-nonfree-release-tainted
 
 RUN rpm-ostree install akmod-nvidia-open xorg-x11-drv-nvidia
 
+RUN akmods --force --rebuild
+
 # RUN rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova_core --append=modprobe.blacklist=nouveau,nova_core --append=nvidia-drm.modeset=1
 
 RUN rpm-ostree cleanup --repomd
