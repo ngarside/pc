@@ -1,0 +1,3 @@
+flathub io.missioncenter.MissionCenter
+flathub org.gnome.Calculator
+flathub org.mozilla.firefox

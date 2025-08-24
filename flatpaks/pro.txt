@@ -1,0 +1,3 @@
+flathub com.bambulab.BambuStudio
+flathub org.mozilla.firefox
+flathub org.mozilla.Thunderbird

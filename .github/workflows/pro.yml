@@ -1,6 +1,6 @@
 # This is free and unencumbered software released into the public domain.
 
-name: pc
+name: pro
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
       contents: read
       packages: write
     with:
-      name: pc
+      name: pro
