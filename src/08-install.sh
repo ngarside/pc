@@ -6,4 +6,5 @@ rpm-ostree install \
     just \
     godot \
     golang \
+    nodejs \
     zig
