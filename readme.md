@@ -8,6 +8,8 @@ The GitOps codebase for my home PC.
 
 Switch to the custom image:
 
+> Integrated graphics & secure boot must be disabled in BIOS.
+
 ```sh
 sudo bootc switch ghcr.io/ngarside/pc:latest
 
