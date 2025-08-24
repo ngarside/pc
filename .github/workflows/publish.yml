@@ -18,22 +18,23 @@ jobs:
       packages: write
     steps:
 
-      - name: checkout
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - uses: actions/delete-package-versions@v5
+      - name: Purge old versions
+        uses: actions/delete-package-versions@v5
         with:
           package-name: pc
           package-type: container
           delete-only-untagged-versions: true
 
-      - name: login
+      - name: Login to registry
         run: >-
             podman login ghcr.io
             --username ${{ github.actor }}
             --password ${{ secrets.GITHUB_TOKEN }}
 
-      - name: build
+      - name: Build image
         run: >-
             podman build
             --file containerfile
@@ -43,5 +44,5 @@ jobs:
             --tag ghcr.io/ngarside/pc:latest
             .
 
-      - name: push
+      - name: Push image to registry
         run: podman push ghcr.io/ngarside/pc:latest
