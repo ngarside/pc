@@ -6,12 +6,22 @@ The GitOps codebase for my home PC.
 
 # <p align=center>Setup
 
+Switch to the custom image:
+
 ```sh
 sudo bootc switch ghcr.io/ngarside/pc:latest
 
 sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova_core --append=modprobe.blacklist=nouveau,nova_core --append=nvidia-drm.modeset=1
 
 reboot
+```
+
+# <p align=center>Notes
+
+Upgrade to the latest image:
+
+```sh
+sudo bootc upgrade
 ```
 
 # <p align=center>License
