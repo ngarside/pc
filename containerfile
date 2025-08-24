@@ -4,7 +4,7 @@ RUN rpm-ostree install papirus-icon-theme
 
 RUN rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-42.noarch.rpm
 
-RUN rpm-ostree install https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-tainted-42.noarch.rpm
+RUN rpm-ostree install rpmfusion-nonfree-release-tainted
 
 RUN rpm-ostree install akmod-nvidia-open xorg-x11-drv-nvidia
 
