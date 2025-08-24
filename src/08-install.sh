@@ -2,7 +2,6 @@
 
 rpm-ostree install \
     dotnet-sdk-9.0 \
-    install \
     just \
     godot \
     golang \
