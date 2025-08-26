@@ -6,9 +6,9 @@ _default:
 # Build container image
 build:
     podman build \
-        --file images/pc.containerfile \
+        --file images/pro.containerfile \
         --format docker \
         --progress plain \
         --security-opt label=disable \
-        --tag ghcr.io/ngarside/pc:latest \
+        --tag ghcr.io/ngarside/pro:latest \
         .

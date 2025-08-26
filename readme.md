@@ -11,7 +11,7 @@ Switch to the custom image:
 > Integrated graphics & secure boot must be disabled in BIOS.
 
 ```sh
-sudo bootc switch ghcr.io/ngarside/pc:latest
+sudo bootc switch ghcr.io/ngarside/pro:latest
 
 sudo rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova_core --append=modprobe.blacklist=nouveau,nova_core --append=nvidia-drm.modeset=1
 
